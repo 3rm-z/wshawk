@@ -41,3 +41,5 @@ wshawk_report.html
 
 # Git
 .git/
+PROJECT_SUMMARY.md
+PYPI_PUBLISH.md
