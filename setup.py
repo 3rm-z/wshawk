@@ -11,7 +11,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name="wshawk",
-    version="2.0.3",
+    version="2.0.4",
     author="Regaan",
     description="Professional WebSocket security scanner with real vulnerability verification, session hijacking tests, and CVSS scoring",
     long_description=long_description,
@@ -39,6 +39,7 @@ setup(
             "wshawk=wshawk.__main__:cli",
             "wshawk-interactive=wshawk.interactive:cli",
             "wshawk-advanced=wshawk.advanced_cli:cli",
+            "wshawk-defensive=wshawk.defensive_cli:cli",
         ],
     },
     include_package_data=True,

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "wshawk"
-version = "2.0.3"
+version = "2.0.4"
 authors = [
     {name = "Regaan"}
 ]
@@ -42,6 +42,7 @@ Source = "https://github.com/noobforanonymous/wshawk"
 wshawk = "wshawk.__main__:cli"
 wshawk-interactive = "wshawk.interactive:cli"
 wshawk-advanced = "wshawk.advanced_cli:cli"
+wshawk-defensive = "wshawk.defensive_cli:cli"
 
 [tool.setuptools]
 packages = {find = {}}

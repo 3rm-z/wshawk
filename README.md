@@ -120,6 +120,42 @@ Options:
   --no-oast        Disable OAST testing
 ```
 
+## Defensive Validation (NEW in v2.0.4)
+
+WSHawk now includes a **Defensive Validation Module** designed for blue teams to validate their security controls.
+
+```bash
+# Run defensive validation tests
+wshawk-defensive ws://your-server.com
+```
+
+### What It Tests
+
+**1. DNS Exfiltration Prevention**
+- Validates if DNS-based data exfiltration is blocked
+- Tests egress filtering effectiveness
+- Detects potential APT-style attack vectors
+
+**2. Bot Detection Effectiveness**
+- Tests if anti-bot measures detect headless browsers
+- Validates resistance to evasion techniques
+- Identifies gaps in bot protection
+
+**3. CSWSH (Cross-Site WebSocket Hijacking)**
+- Tests Origin header validation (216+ malicious origins)
+- Validates CSRF token requirements
+- Critical for preventing session hijacking
+
+### Use Cases
+
+- Validate security controls before production deployment
+- Regular security posture assessment
+- Compliance and audit requirements
+- Blue team defensive capability testing
+
+See [Defensive Validation Documentation](docs/DEFENSIVE_VALIDATION.md) for detailed usage and remediation guidance.
+
+
 ## Documentation
 
 - [Getting Started Guide](docs/getting_started.md)

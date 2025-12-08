@@ -2,6 +2,23 @@
 
 All notable changes to WSHawk will be documented in this file.
 
+## [2.0.4] - 2025-12-08
+
+### Added
+- **Defensive Validation Module** - New module for blue teams to validate security controls
+  - DNS Exfiltration Prevention Test - Validates egress filtering effectiveness
+  - Bot Detection Validation Test - Tests anti-bot measure effectiveness  
+  - CSWSH (Cross-Site WebSocket Hijacking) Test - Validates Origin header enforcement
+- New CLI command: `wshawk-defensive` for running defensive validation tests
+- 216+ malicious origin payloads for comprehensive CSWSH testing
+- Comprehensive documentation in `docs/DEFENSIVE_VALIDATION.md`
+- CVSS scoring for all defensive validation findings
+
+### Improved
+- Payload management - Malicious origins now loaded from `payloads/malicious_origins.txt`
+- Better separation between offensive and defensive testing capabilities
+- Enhanced documentation for blue team security validation
+
 ## [2.0.3] - 2025-12-07
 
 ### Fixed
