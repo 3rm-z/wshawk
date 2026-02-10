@@ -35,14 +35,17 @@ jobs:
       - name: Verify Secrets Presence
         if: github.event_name != 'pull_request'
         run: |
-          if [ -z "${{ secrets.DOCKER_USERNAME }}" ]; then echo "::error::DOCKER_USERNAME secret is MISSING"; exit 1; else echo "DOCKER_USERNAME secret is present"; fi
-          if [ -z "${{ secrets.DOCKER_PASSWORD }}" ]; then echo "::error::DOCKER_PASSWORD secret is MISSING"; exit 1; else echo "DOCKER_PASSWORD secret is present"; fi
+          if [ -z "$D_PASS" ]; then echo "::error::DOCKER_PASSWORD secret is MISSING"; exit 1; fi
+          echo "DOCKER_USERNAME is hardcoded to: rothackers"
+          echo "DOCKER_PASSWORD is present (Length: ${#D_PASS})"
+        env:
+          D_PASS: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Log in to Docker Hub
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: rothackers
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Log in to GHCR
