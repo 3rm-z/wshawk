@@ -1,4 +1,4 @@
-# WSHawk v2.0 - Professional WebSocket Security Scanner
+# WSHawk v3.0.0 - Professional WebSocket Security Scanner
 
 # SECURITY WARNING: FAKE VERSIONS CIRCULATING
 
@@ -20,7 +20,7 @@
 [![Playwright](https://img.shields.io/badge/Playwright-Supported-green.svg)](https://playwright.dev/)
 [![Status: Production](https://img.shields.io/badge/status-production-green.svg)](https://github.com/noobforanonymous/wshawk)
 
-**WSHawk v2.0** is a production-grade WebSocket security scanner with advanced features including real vulnerability verification, dynamic mutation, and comprehensive session security testing. It also includes a **Persistent Web GUI** for dashboarding and history.
+**WSHawk v3.0.0** is a production-grade WebSocket security scanner with advanced features including real vulnerability verification, dynamic mutation, and comprehensive session security testing. It also includes a **Persistent Web GUI** for dashboarding and history.
 
 ## Why WSHawk?
 
@@ -109,9 +109,9 @@ wshawk --web
 ```
 Best for teams requiring scan history, visual progress tracking, and professional report management.
 
-## 🖥️ Web Management Dashboard
+## Web Management Dashboard
 
-WSHawk v2.0 introduces a persistent, secure web-based dashboard for managing all your WebSocket security assessments.
+WSHawk v3.0.0 introduces a persistent, secure web-based dashboard for managing all your WebSocket security assessments.
 
 ### Launching the GUI
 ```bash
@@ -134,7 +134,7 @@ wshawk --web
 | **Interactive Reports** | View, delete, and manage comprehensive HTML reports in-browser. |
 | **API Key Support** | Programmatic access via `--api-key` or `WSHAWK_API_KEY`. |
 
-## ⚙️ Hierarchical Configuration (`wshawk.yaml`)
+## Hierarchical Configuration (`wshawk.yaml`)
 
 WSHawk now supports a professional configuration system. Generate a template to get started:
 ```bash
@@ -196,7 +196,7 @@ Options:
   --no-oast        Disable OAST testing
 ```
 
-## Defensive Validation (NEW in v2.0.4)
+## Defensive Validation (NEW in v3.0.0)
 
 WSHawk now includes a **Defensive Validation Module** designed for blue teams to validate their security controls.
 
@@ -305,6 +305,6 @@ By using WSHawk, you agree to these terms and use it at your own risk.
 
 ---
 
-**WSHawk v2.0** - Professional WebSocket Security Scanner
+**WSHawk v3.0.0** - Professional WebSocket Security Scanner
 
 *Built for the security community*

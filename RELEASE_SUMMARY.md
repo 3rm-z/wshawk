@@ -1,99 +1,59 @@
-# WSHawk v2.0.7 - Complete Release Summary
+# WSHawk v3.0.0 - Enterprise Release Summary
 
-### 1. Robust Production-Grade Core
-**Purpose:** Transform WSHawk into a reliable, enterprise-ready tool.
-
-**Improvements:**
-- **90+ Comprehensive Unit Tests:** Validating every core module (CVSS, Mutator, Verifier, Analyzer, WAF, Fingerprint).
-- **Interactive Mode Fixed:** Selection logic now respects user input (1-13) instead of always running full scans.
-- **Specific Exception Handling:** Replaced all 18 bare `except:` blocks with specific exception types for stability and better debugging.
-- **Dependency Cleanup:** Removed unused dependencies like `asyncio-mqtt` to reduce attack surface and build size.
+WSHawk v3.0.0 represents a major architectural leap, transforming from a high-performance scanner into a production-grade, enterprise-ready WebSocket security ecosystem. This release focuses on **Resilience**, **Persistence**, and **Automation**.
 
 ---
 
-### 2. Advanced Security Features
+## Key Feature Pillar: Enterprise Infrastructure
 
-#### Full OAST Integration
-- **Platform:** `interact.sh` (oast.fun)
-- **Features:** Automatic registration, polling for interactions, and deregistration.
-- **Impact:** Detects blind vulnerabilities like XXE, SSRF, and RCE through external callbacks.
+### Production-Grade Resilience Layer
+The core communication engine has been rewritten to handle unstable targets and rate-limited environments.
+- **ResilientSession**: Custom wrapper for all HTTP, WebSocket, and API calls.
+- **Exponential Backoff**: Automatic retry logic with jitter to handle `429 Too Many Requests` elegantly.
+- **Circuit Breakers**: Prevents "cascading failures" when integrated with external platforms like Jira or DefectDojo. If a service is down, WSHawk fails gracefully instead of hanging.
 
-#### Expanded WAF Detection
-- **Detection Count:** Increased from 4 to 12 WAFs.
-- **New WAFs:** AWS WAF, F5 BIG-IP, Barracuda, Sucuri, Fortinet FortiWeb, Azure WAF, Citrix NetScaler, and DenyAll.
-- **Impact:** Advanced payload mutation strategies are now tailored to a much wider range of protections.
-
----
-
-### 3. Developer & Documentation Package
-
-#### Examples Directory
-- `examples/basic_scan.py` - Quick start for programmatic usage.
-- `examples/mutation_demo.py` - Deep dive into the mutation engine strategies.
-- `examples/defensive_check.py` - Blue team auditing usage.
-
-#### Updated Distribution Metadata
-- **Version:** 2.0.7 (Unified across all files)
-- **Changelog:** Detailed history of the stabilization project.
+### Persistent Web Management Portal
+WSHawk now includes a fully functional, SQLite-backed management dashboard.
+- **Scan History**: All scans, vulnerabilities, and traffic logs are persisted to `~/.wshawk/scans.db`.
+- **Authenticated Login**: Secure dashboard access protected by SHA-256 password hashing.
+- **REST API**: A full JSON API for programmatic control of the scanner (`/api/scans`, `/api/stats`, etc.).
 
 ---
 
-## Testing Status
+## Key Feature Pillar: Cognitive Security
 
-### Automated Test Suite
-- **Total Tests:** 90
-- **Passed:** 90
-- **Failed:** 0
-- **Time:** ~0.15s (Optimized)
+### Smart Payload Evolution (New Phase)
+The scanning engine is no longer static; it now adapts to the target server's response patterns.
+- **Adaptive Feedback Loop**: Real-time classification of server responses to prioritize promising attack vectors.
+- **Genetic Mutation Phase**: A new post-scan process that evolves novel payloads by mutating successful bypasses found during the initial heuristic scan.
 
-**Coverage:**
-- CVSS v3.1 Calculator
-- Payload Mutation Engine
-- Vulnerability Verifier (SQLi, XSS, RCE, LFI)
-- Message Analyzer (JSON/XML/Binary)
-- WAF Detector (12 Signatures)
-- Server Fingerprinting
+### SOC & CI/CD Integrations
+WSHawk v3.0.0 is built to live inside a modern security operations center.
+- **Jira Integration**: Automated ticket creation with full reproduction steps and CVSS severity.
+- **DefectDojo Integration**: Direct push of findings to the open-source vulnerability management platform.
+- **Rich Webhooks**: Structured notifications for **Slack**, **Discord**, and **Microsoft Teams**.
 
 ---
 
-## Installation & Usage
+## Technical Improvements & Bug Fixes
 
-### Local Development
-```bash
-pip install -e .
-python -m pytest tests/
-```
+### Refactored Distribution
+- **MANIFEST.in System**: Comprehensive asset management ensures that HTML templates, CSS, and payloads are correctly bundled during `pip install`.
+- **Fixed Asset Distribution**: Resolved TemplateNotFound errors when installed via pip.
 
-### Docker Usage
-```bash
-docker pull rothackers/wshawk:2.0.7
-docker run --rm rothackers/wshawk wshawk-interactive
-```
+### Modern CLI Interface
+- **Argparse Refactor**: Unified command-line interface with full support for flags:
+  - `wshawk --web`: Launches the Management Dashboard.
+  - `wshawk --version`: Displays the official v3.0.0 build info.
+- **Async Safety**: thread-safe event loop management.
 
 ---
 
-## Project Stabilization Summary
-
-### Cleaned Files
-- Removed: `scanner_v2_additions.py`
-- Removed: `scanner_v2_new.py`
-- Removed: `payload_mutator_v3.py`
-
-### Updated Infrastructure
-- `.github/workflows/` - Compatible with new test suite.
-- `Dockerfile` - Updated labels and version strings.
-- `CHANGELOG.md` - Complete version history for 2.0.7.
+## Reporting & Outputs
+- **SARIF Support**: Standardized Static Analysis Results Interchange Format.
+- **JSON/CSV/HTML**: Multi-format exports for both human reading and machine processing.
+- **CVSS v3.1 Integration**: Every finding includes a calculated vector and score.
 
 ---
 
-## Ready Status
-
-**WSHawk v2.0.7** is now:
-- **Tested:** 90 passing tests.
-- **Stable:** No broad exception swallowing.
-- **Integrated:** Functional OAST and expanded WAF support.
-- **Usable:** Working interactive mode and rich examples.
-
----
-
-**Built by Regaan**
+### **Built by Regaan (@noobforanonymous)**
