@@ -2,6 +2,13 @@
 
 All notable changes to WSHawk will be documented in this file.
 
+## [3.0.0] - 2026-02-18
+
+### Added
+- **Major Architecture Shift** - Enterprise-grade resilience and dashbord persistence.
+- **Fixed Asset Distribution** - Patched TemplateNotFound errors by adding MANIFEST.in.
+- **CLI Argparse Refactor** - Full support for flags like --web and --version.
+
 ## [2.0.8] - 2026-02-18
 
 ### Fixed
