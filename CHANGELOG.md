@@ -2,6 +2,12 @@
 
 All notable changes to WSHawk will be documented in this file.
 
+## [2.0.8] - 2026-02-18
+
+### Fixed
+- **CLI Entry Point** - Refactored `wshawk` command to properly handle `--web`, `--version`, and port/host flags using argparse.
+- **Async Safety** - Fixed "Event loop already running" errors when launching the scanner via CLI.
+
 ## [2.0.7] - 2026-02-18
 
 ### Added

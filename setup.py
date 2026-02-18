@@ -15,7 +15,7 @@ requirements = [
 
 setup(
     name="wshawk",
-    version="2.0.7",
+    version="2.0.8",
     author="Regaan",
     description="Professional WebSocket security scanner with real vulnerability verification, session hijacking tests, and CVSS scoring",
     long_description=long_description,
